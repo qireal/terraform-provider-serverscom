@@ -4,7 +4,7 @@ page_title: "Servers.com: serverscom_server_model_order_options"
 
 # serverscom_server_model_order_options
 
-Lists dedicated server models (chassis) available for ordering in a location, with optional filtering. Use it to find the server model name for [`serverscom_dedicated_server`](../resources/dedicated_server.md) or the server model ID for other order options data sources.
+Lists dedicated server models (chassis) available for ordering in a location, with optional filtering. Use it to find the server model name for the `serverscom_dedicated_server` resource or the server model ID for other order options data sources.
 
 ## Example Usage
 
@@ -40,7 +40,7 @@ data "serverscom_server_model_order_options" "raid" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
 - `filter` - (Optional, block) A block to filter the returned models. Supports:
   - `search_pattern` - (Optional, string) Substring match on the server model name.
   - `has_raid_controller` - (Optional, bool) Return only models with (`true`) or without (`false`) a RAID controller.

@@ -61,7 +61,7 @@ The following attributes are exported:
   - `name` - A human-readable name of the location.
   - `code` - A technical identifier of the location. For example: `AMS1`.
   - `status` - The status of the location.
-  - `supported_features` - A list of features supported in the location. See [`serverscom_location`](location.md) for the possible values.
+  - `supported_features` - A list of features supported in the location. See the `serverscom_location` data source for the possible values.
   - `l2_segments_enabled` - Whether L2 Segments are available in the location.
   - `private_racks_enabled` - Whether Private Racks are available in the location.
   - `load_balancers_enabled` - Whether the Load Balancer service is available in the location.

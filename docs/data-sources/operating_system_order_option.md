@@ -4,9 +4,9 @@ page_title: "Servers.com: serverscom_operating_system_order_option"
 
 # serverscom_operating_system_order_option
 
-Get information on an operating system available for a dedicated server model in a location. For Scalable Bare Metal (SBM) servers, use [`serverscom_sbm_operating_system_order_option`](sbm_operating_system_order_option.md). To list all operating systems, use [`serverscom_operating_system_order_options`](operating_system_order_options.md).
+Get information on an operating system available for a dedicated server model in a location. For Scalable Bare Metal (SBM) servers, use the `serverscom_sbm_operating_system_order_option` data source. To list all operating systems, use the `serverscom_operating_system_order_options` data source.
 
-The `operating_system` argument of [`serverscom_dedicated_server`](../resources/dedicated_server.md) is matched, case-insensitively, against the OS name, version, and architecture joined with spaces, for example `Ubuntu 24.04-server x86_64`. The `filesystems` attribute lists the values accepted by the `fs` argument of a partition.
+The `operating_system` argument of the `serverscom_dedicated_server` resource is matched, case-insensitively, against the OS name, version, and architecture joined with spaces, for example `Ubuntu 24.04-server x86_64`. The `filesystems` attribute lists the values accepted by the `fs` argument of a partition.
 
 ## Example Usage
 
@@ -26,9 +26,9 @@ output "os_filesystems" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
-- `server_model_id` - (Required, int) The ID of the server model. Use [`serverscom_server_model_order_options`](server_model_order_options.md) to find it.
-- `id` - (Required, int) The ID of the operating system. Use [`serverscom_operating_system_order_options`](operating_system_order_options.md) to list IDs.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
+- `server_model_id` - (Required, int) The ID of the server model. Use the `serverscom_server_model_order_options` data source to find it.
+- `id` - (Required, int) The ID of the operating system. Use the `serverscom_operating_system_order_options` data source to list IDs.
 
 ## Attributes Reference
 

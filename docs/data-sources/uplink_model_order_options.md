@@ -4,7 +4,7 @@ page_title: "Servers.com: serverscom_uplink_model_order_options"
 
 # serverscom_uplink_model_order_options
 
-Lists uplink models available for a server model in a location, with optional filtering. Use it to find the names for the `private_uplink` and `public_uplink` arguments of [`serverscom_dedicated_server`](../resources/dedicated_server.md), and the uplink IDs for [`serverscom_bandwidth_order_options`](bandwidth_order_options.md).
+Lists uplink models available for a server model in a location, with optional filtering. Use it to find the names for the `private_uplink` and `public_uplink` arguments of the `serverscom_dedicated_server` resource, and the uplink IDs for the `serverscom_bandwidth_order_options` data source.
 
 ## Example Usage
 
@@ -28,8 +28,8 @@ output "public_uplinks" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
-- `server_model_id` - (Required, int) The ID of the server model. Use [`serverscom_server_model_order_options`](server_model_order_options.md) to find it.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
+- `server_model_id` - (Required, int) The ID of the server model. Use the `serverscom_server_model_order_options` data source to find it.
 - `filter` - (Optional, block) A block to filter the returned uplink models. Supports:
   - `type` - (Optional, string) The uplink type: `private` or `public`.
   - `redundancy` - (Optional, bool) Return only uplinks with (`true`) or without (`false`) redundancy.

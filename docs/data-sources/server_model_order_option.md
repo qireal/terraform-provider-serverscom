@@ -4,15 +4,11 @@ page_title: "Servers.com: serverscom_server_model_order_option"
 
 # serverscom_server_model_order_option
 
-Get information on a dedicated server model (chassis). The data source exposes CPU, RAM, RAID controller, and drive slot attributes. To list all models in a location, use [`serverscom_server_model_order_options`](server_model_order_options.md).
+Get information on a dedicated server model (chassis). The data source exposes CPU, RAM, RAID controller, and drive slot attributes. To list the server models available in a location, use the `serverscom_server_model_order_options` data source.
 
-~> **Known issue:** In the current provider version the schema of this data source accepts `id` and `server_model_id`, but its read function looks up the model by a `location_id` value that is not part of the schema. As a result, the lookup does not complete successfully. Until this is fixed, use [`serverscom_server_model_order_options`](server_model_order_options.md), which returns the same model attributes (except `drive_slots`) for a location.
-
-The `name` attribute is the value of the `server_model` argument of [`serverscom_dedicated_server`](../resources/dedicated_server.md). The `id` is the `server_model_id` input of the other order options data sources: [drive models](drive_model_order_options.md), [operating systems](operating_system_order_options.md), [RAM](ram_order_options.md), [uplink models](uplink_model_order_options.md), and [bandwidth](bandwidth_order_options.md).
+The `name` attribute is the value of the `server_model` argument of the `serverscom_dedicated_server` resource. The `id` is the `server_model_id` input of the drive model, operating system, RAM, uplink model, and bandwidth order options data sources.
 
 ## Example Usage
-
-The arguments below are the ones the schema currently requires:
 
 ```hcl
 data "serverscom_server_model_order_option" "example" {
@@ -45,7 +41,7 @@ The following attributes are exported:
 - `raid_controller_name` - (string) The name of the RAID controller. Empty if there is no RAID controller.
 - `drive_slots_count` - (int) The number of drive slots.
 - `drive_slots` - (list) Drive slots of the server model. Each element contains:
-  - `position` - (int) The slot position, starting from `0`. This is the `position` of the `slot` block in [`serverscom_dedicated_server`](../resources/dedicated_server.md).
+  - `position` - (int) The slot position, starting from `0`. This is the `position` of the `slot` block in the `serverscom_dedicated_server` resource.
   - `interface` - (string) The slot interface.
   - `form_factor` - (string) The slot form factor.
   - `drive_model_id` - (int) The ID of the drive model in the slot.

@@ -4,7 +4,7 @@ page_title: "Servers.com: serverscom_location"
 
 # serverscom_location
 
-Get information on a Servers.com location (data center), including the features and services it supports. Location IDs are used by the order options data sources and by resources such as [`serverscom_rbs_volume`](../resources/rbs_volume.md). To find an ID by a location code or name, use [`serverscom_locations`](locations.md).
+Get information on a Servers.com location (data center), including the features and services it supports. Location IDs are used by the order options data sources and by resources such as the `serverscom_rbs_volume` resource. To find an ID by a location code or name, use the `serverscom_locations` data source.
 
 ## Example Usage
 

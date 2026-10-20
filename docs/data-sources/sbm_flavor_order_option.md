@@ -4,9 +4,9 @@ page_title: "Servers.com: serverscom_sbm_flavor_order_option"
 
 # serverscom_sbm_flavor_order_option
 
-Get information on a Scalable Bare Metal (SBM) flavor available in a location. An SBM flavor is a fixed configuration of CPU, RAM, drives, uplinks, and bandwidth. To list all flavors, use [`serverscom_sbm_flavor_order_options`](sbm_flavor_order_options.md).
+Get information on a Scalable Bare Metal (SBM) flavor available in a location. An SBM flavor is a fixed configuration of CPU, RAM, drives, uplinks, and bandwidth. To list all flavors, use the `serverscom_sbm_flavor_order_options` data source.
 
-The `name` attribute is the value of the `flavor` argument of [`serverscom_sbm_server`](../resources/sbm_server.md). The `id` is the `sbm_flavor_model_id` input of [`serverscom_sbm_operating_system_order_options`](sbm_operating_system_order_options.md).
+The `name` attribute is the value of the `flavor` argument of the `serverscom_sbm_server` resource. The `id` is the `sbm_flavor_model_id` input of the `serverscom_sbm_operating_system_order_options` data source.
 
 ## Example Usage
 
@@ -25,8 +25,8 @@ output "sbm_flavor_name" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
-- `id` - (Required, int) The ID of the SBM flavor. Use [`serverscom_sbm_flavor_order_options`](sbm_flavor_order_options.md) to list IDs.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
+- `id` - (Required, int) The ID of the SBM flavor. Use the `serverscom_sbm_flavor_order_options` data source to list IDs.
 
 ## Attributes Reference
 

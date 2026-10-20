@@ -23,8 +23,8 @@ output "sbm_operating_systems" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
-- `sbm_flavor_model_id` - (Required, int) The ID of the SBM flavor. Use [`serverscom_sbm_flavor_order_options`](sbm_flavor_order_options.md) to find it.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
+- `sbm_flavor_model_id` - (Required, int) The ID of the SBM flavor. Use the `serverscom_sbm_flavor_order_options` data source to find it.
 
 ## Attributes Reference
 

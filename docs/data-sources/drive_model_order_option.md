@@ -4,9 +4,9 @@ page_title: "Servers.com: serverscom_drive_model_order_option"
 
 # serverscom_drive_model_order_option
 
-Get information on a drive model available for a server model in a location. To list all drive models, use [`serverscom_drive_model_order_options`](drive_model_order_options.md).
+Get information on a drive model available for a server model in a location. To list all drive models, use the `serverscom_drive_model_order_options` data source.
 
-The `name` attribute is the value of the `drive_model` argument of the `slot` block in [`serverscom_dedicated_server`](../resources/dedicated_server.md).
+The `name` attribute is the value of the `drive_model` argument of the `slot` block in the `serverscom_dedicated_server` resource.
 
 ## Example Usage
 
@@ -26,9 +26,9 @@ output "drive_model_name" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
-- `server_model_id` - (Required, int) The ID of the server model. Use [`serverscom_server_model_order_options`](server_model_order_options.md) to find it.
-- `id` - (Required, int) The ID of the drive model. Use [`serverscom_drive_model_order_options`](drive_model_order_options.md) to list IDs.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
+- `server_model_id` - (Required, int) The ID of the server model. Use the `serverscom_server_model_order_options` data source to find it.
+- `id` - (Required, int) The ID of the drive model. Use the `serverscom_drive_model_order_options` data source to list IDs.
 
 ## Attributes Reference
 

@@ -4,9 +4,9 @@ page_title: "Servers.com: serverscom_bandwidth_order_option"
 
 # serverscom_bandwidth_order_option
 
-Get information on a bandwidth option (a traffic billing policy) available for an uplink model in a location. To list all bandwidth options, use [`serverscom_bandwidth_order_options`](bandwidth_order_options.md).
+Get information on a bandwidth option (a traffic billing policy) available for an uplink model in a location. To list all bandwidth options, use the `serverscom_bandwidth_order_options` data source.
 
-The `name` attribute is the value of the `bandwidth` argument of [`serverscom_dedicated_server`](../resources/dedicated_server.md). Bandwidth is required when a public uplink is used.
+The `name` attribute is the value of the `bandwidth` argument of the `serverscom_dedicated_server` resource. Bandwidth is required when a public uplink is used.
 
 ## Example Usage
 
@@ -27,10 +27,10 @@ output "bandwidth_name" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
-- `server_model_id` - (Required, int) The ID of the server model. Use [`serverscom_server_model_order_options`](server_model_order_options.md) to find it.
-- `uplink_model_id` - (Required, int) The ID of the public uplink model. Use [`serverscom_uplink_model_order_options`](uplink_model_order_options.md) to find it.
-- `id` - (Required, int) The ID of the bandwidth option. Use [`serverscom_bandwidth_order_options`](bandwidth_order_options.md) to list IDs.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
+- `server_model_id` - (Required, int) The ID of the server model. Use the `serverscom_server_model_order_options` data source to find it.
+- `uplink_model_id` - (Required, int) The ID of the public uplink model. Use the `serverscom_uplink_model_order_options` data source to find it.
+- `id` - (Required, int) The ID of the bandwidth option. Use the `serverscom_bandwidth_order_options` data source to list IDs.
 
 ## Attributes Reference
 

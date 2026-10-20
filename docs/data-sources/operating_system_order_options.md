@@ -4,7 +4,7 @@ page_title: "Servers.com: serverscom_operating_system_order_options"
 
 # serverscom_operating_system_order_options
 
-Lists operating systems available for a dedicated server model in a location. For Scalable Bare Metal (SBM) servers, use [`serverscom_sbm_operating_system_order_options`](sbm_operating_system_order_options.md).
+Lists operating systems available for a dedicated server model in a location. For Scalable Bare Metal (SBM) servers, use the `serverscom_sbm_operating_system_order_options` data source.
 
 ## Example Usage
 
@@ -36,8 +36,8 @@ output "ubuntu" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
-- `server_model_id` - (Required, int) The ID of the server model. Use [`serverscom_server_model_order_options`](server_model_order_options.md) to find it.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
+- `server_model_id` - (Required, int) The ID of the server model. Use the `serverscom_server_model_order_options` data source to find it.
 
 ## Attributes Reference
 

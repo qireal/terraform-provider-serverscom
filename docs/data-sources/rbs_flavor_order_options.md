@@ -4,7 +4,7 @@ page_title: "Servers.com: serverscom_rbs_flavor_order_options"
 
 # serverscom_rbs_flavor_order_options
 
-Lists Remote Block Storage (RBS) flavors available in a location. Use the flavor `id` as the `flavor_id` argument of [`serverscom_rbs_volume`](../resources/rbs_volume.md).
+Lists Remote Block Storage (RBS) flavors available in a location. Use the flavor `id` as the `flavor_id` argument of the `serverscom_rbs_volume` resource.
 
 ## Example Usage
 
@@ -43,7 +43,7 @@ resource "serverscom_rbs_volume" "data" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
 
 ## Attributes Reference
 

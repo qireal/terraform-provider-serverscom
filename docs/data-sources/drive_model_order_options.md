@@ -4,7 +4,7 @@ page_title: "Servers.com: serverscom_drive_model_order_options"
 
 # serverscom_drive_model_order_options
 
-Lists drive models available for a server model in a location, with optional filtering. Use it to find the drive model name for the `slot` block of [`serverscom_dedicated_server`](../resources/dedicated_server.md).
+Lists drive models available for a server model in a location, with optional filtering. Use it to find the drive model name for the `slot` block of the `serverscom_dedicated_server` resource.
 
 ## Example Usage
 
@@ -39,8 +39,8 @@ resource "serverscom_dedicated_server" "node_1" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
-- `server_model_id` - (Required, int) The ID of the server model. Use [`serverscom_server_model_order_options`](server_model_order_options.md) to find it.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
+- `server_model_id` - (Required, int) The ID of the server model. Use the `serverscom_server_model_order_options` data source to find it.
 - `filter` - (Optional, block) A block to filter the returned drive models. Supports:
   - `search_pattern` - (Optional, string) Substring match on the drive model name.
   - `media_type` - (Optional, string) Media type: `HDD` or `SSD`.

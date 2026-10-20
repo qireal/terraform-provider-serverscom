@@ -4,7 +4,7 @@ page_title: "Servers.com: serverscom_rbs_volume"
 
 # serverscom_rbs_volume
 
-Get information on a Remote Block Storage (RBS) volume for use in other resources. This data source provides all of the RBS volume properties except the credentials, which are available in [`serverscom_rbs_volume_credentials`](rbs_volume_credentials.md).
+Get information on a Remote Block Storage (RBS) volume for use in other resources. This data source provides all of the RBS volume properties except the credentials, which are available in the `serverscom_rbs_volume_credentials` data source.
 
 ## Example Usage
 

@@ -6,7 +6,7 @@ page_title: "Servers.com: serverscom_rbs_volume_credentials"
 
 Get the iSCSI connection credentials of a Remote Block Storage (RBS) volume. Use them to configure CHAP authentication on a host, see [Getting started](https://www.servers.com/docs/rbs/getting-started) in the knowledge base.
 
-~> **Warning:** The `password` attribute is not marked as sensitive by the provider and is stored in plain text in the Terraform state. Use a remote backend with encryption and access control, and mark any output that exposes it with `sensitive = true`.
+~> **Important:** The credentials are stored in the Terraform state. Keep the state in a backend with encryption and restricted access, and mark any output that exposes the password with `sensitive = true`.
 
 ## Example Usage
 

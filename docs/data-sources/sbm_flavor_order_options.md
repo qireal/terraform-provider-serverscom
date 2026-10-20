@@ -4,7 +4,7 @@ page_title: "Servers.com: serverscom_sbm_flavor_order_options"
 
 # serverscom_sbm_flavor_order_options
 
-Lists Scalable Bare Metal (SBM) flavors available in a location, with optional filtering. Use it to find the name for the `flavor` argument of [`serverscom_sbm_server`](../resources/sbm_server.md).
+Lists Scalable Bare Metal (SBM) flavors available in a location, with optional filtering. Use it to find the name for the `flavor` argument of the `serverscom_sbm_server` resource.
 
 ## Example Usage
 
@@ -38,7 +38,7 @@ data "serverscom_sbm_flavor_order_options" "all" {
 
 The following arguments are supported:
 
-- `location_id` - (Required, int) The ID of the location. Use [`serverscom_locations`](locations.md) to find it.
+- `location_id` - (Required, int) The ID of the location. Use the `serverscom_locations` data source to find it.
 - `filter` - (Optional, block) A block to filter the returned flavors. Supports:
   - `search_pattern` - (Optional, string) Substring match on the flavor name.
   - `show_all` - (Optional, bool) By default, only available flavors are returned. Set to `true` to include unavailable flavors.
