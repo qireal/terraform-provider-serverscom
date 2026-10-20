@@ -6,11 +6,11 @@ page_title: "Servers.com: serverscom_rbs_volume"
 
 Provides a Servers.com Remote Block Storage (RBS) volume resource. This can be used to create, resize, rename, label, and delete RBS volumes. Learn more about the service [in the knowledge base](https://www.servers.com/docs/rbs/concepts).
 
-RBS volumes are exposed to your hosts over iSCSI. The provider creates and manages the volume itself; connecting it to a Linux, Windows, or Kubernetes host is done on the host side, see [Connecting a volume](#connecting-a-volume).
+RBS volumes are exposed to your hosts over iSCSI. The provider creates and manages the volume itself; connecting it to a Linux, Windows, or Kubernetes host is done on the host side, see the Connecting a volume section below.
 
 ## Example Usage
 
-Create a new RBS volume. Use the [`serverscom_rbs_flavor_order_options`](../data-sources/rbs_flavor_order_options.md) data source to find the flavor ID available in a location:
+Create a new RBS volume. Use the the `serverscom_rbs_flavor_order_options` data source data source to find the flavor ID available in a location:
 
 ```hcl
 data "serverscom_locations" "all" {}
@@ -20,7 +20,7 @@ data "serverscom_rbs_flavor_order_options" "ams1" {
 }
 
 locals {
-  location_id = [for l in data.serverscom_locations.all.locations : l.id if l.code == "AMS1"][0]
+  location_id = one([for l in data.serverscom_locations.all.locations : l.id if l.code == "AMS1"])
 }
 
 resource "serverscom_rbs_volume" "data" {
@@ -42,15 +42,15 @@ Increase the size of an existing volume by raising `size` and applying the confi
 The following arguments are supported:
 
 - `name` - (Required, string) A name of the volume. From 1 to 255 characters.
-- `size` - (Required, int) Volume size in GB. The size can only be increased; decreasing it is rejected by the API. The minimum size depends on the flavor (see `min_size_gb` in [`serverscom_rbs_flavor_order_options`](../data-sources/rbs_flavor_order_options.md)).
-- `location_id` - (Required, int) An ID of the location where the volume is created. Use the [`serverscom_locations`](../data-sources/locations.md) data source to find it. Changing this forces a new resource to be created.
-- `flavor_id` - (Required, int) An ID of the RBS flavor. A flavor defines IOPS and bandwidth per GB of volume size. Use the [`serverscom_rbs_flavor_order_options`](../data-sources/rbs_flavor_order_options.md) data source to list flavors available in the location.
+- `size` - (Required, int) Volume size in GB. The size can only be increased; decreasing it is rejected by the API. The minimum size depends on the flavor (see `min_size_gb` in the `serverscom_rbs_flavor_order_options` data source).
+- `location_id` - (Required, int) An ID of the location where the volume is created. Use the the `serverscom_locations` data source data source to find it. Changing this forces a new resource to be created.
+- `flavor_id` - (Required, int) An ID of the RBS flavor. A flavor defines IOPS and bandwidth per GB of volume size. Use the the `serverscom_rbs_flavor_order_options` data source data source to list flavors available in the location.
 - `labels` - (Optional, map) A map of labels assigned to the volume.
 - `timeouts` - (Optional, block) Customizes how long the provider waits for an operation:
   - `create` - (Optional, string) Time to wait for the volume to become `active`. Defaults to `1h`.
   - `delete` - (Optional, string) Time to wait for the volume removal. Defaults to `30m`.
 
-~> **Note:** `flavor_id` is not changed in place: the provider sends only `name`, `labels`, and `size` when updating a volume. To move to another flavor, create a new volume with the desired flavor and migrate your data.
+~> **Note:** Changing `flavor_id` of an existing volume is not supported. The change is not applied, the volume keeps its flavor, and Terraform keeps showing the difference in the plan. To use another flavor, create a new volume with the desired flavor and migrate your data.
 
 ~> **Note:** Service limits apply: a volume can be mounted to one server at a time, the maximum volume size is 2 TB (up to 10 TB upon request), up to 99 volumes and 10 TB of total volume size per account. The billing period is a calendar month; a volume canceled before the period is over is charged for the full month. See [Limitations](https://www.servers.com/docs/rbs/limitations) and [Billing](https://www.servers.com/docs/rbs/billing).
 
@@ -76,7 +76,7 @@ The following attributes are exported:
 
 ## Connecting a volume
 
-To attach the volume to a host you need the volume IP address, the target IQN, and the CHAP credentials. The IP address and the IQN are exported by this resource; the credentials are available through the [`serverscom_rbs_volume_credentials`](../data-sources/rbs_volume_credentials.md) data source:
+To attach the volume to a host you need the volume IP address, the target IQN, and the CHAP credentials. The IP address and the IQN are exported by this resource; the credentials are available through the the `serverscom_rbs_volume_credentials` data source data source:
 
 ```hcl
 data "serverscom_rbs_volume_credentials" "data" {
