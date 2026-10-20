@@ -10,7 +10,7 @@ RBS volumes are exposed to your hosts over iSCSI. The provider creates and manag
 
 ## Example Usage
 
-Create a new RBS volume. Use the the `serverscom_rbs_flavor_order_options` data source data source to find the flavor ID available in a location:
+Create a new RBS volume. Use the the `serverscom_rbs_flavor_order_options` data source to find the flavor ID available in a location:
 
 ```hcl
 data "serverscom_locations" "all" {}
@@ -43,8 +43,8 @@ The following arguments are supported:
 
 - `name` - (Required, string) A name of the volume. From 1 to 255 characters.
 - `size` - (Required, int) Volume size in GB. The size can only be increased; decreasing it is rejected by the API. The minimum size depends on the flavor (see `min_size_gb` in the `serverscom_rbs_flavor_order_options` data source).
-- `location_id` - (Required, int) An ID of the location where the volume is created. Use the the `serverscom_locations` data source data source to find it. Changing this forces a new resource to be created.
-- `flavor_id` - (Required, int) An ID of the RBS flavor. A flavor defines IOPS and bandwidth per GB of volume size. Use the the `serverscom_rbs_flavor_order_options` data source data source to list flavors available in the location.
+- `location_id` - (Required, int) An ID of the location where the volume is created. Use the the `serverscom_locations` data source to find it. Changing this forces a new resource to be created.
+- `flavor_id` - (Required, int) An ID of the RBS flavor. A flavor defines IOPS and bandwidth per GB of volume size. Use the the `serverscom_rbs_flavor_order_options` data source to list flavors available in the location.
 - `labels` - (Optional, map) A map of labels assigned to the volume.
 - `timeouts` - (Optional, block) Customizes how long the provider waits for an operation:
   - `create` - (Optional, string) Time to wait for the volume to become `active`. Defaults to `1h`.
@@ -76,7 +76,7 @@ The following attributes are exported:
 
 ## Connecting a volume
 
-To attach the volume to a host you need the volume IP address, the target IQN, and the CHAP credentials. The IP address and the IQN are exported by this resource; the credentials are available through the the `serverscom_rbs_volume_credentials` data source data source:
+To attach the volume to a host you need the volume IP address, the target IQN, and the CHAP credentials. The IP address and the IQN are exported by this resource; the credentials are available through the the `serverscom_rbs_volume_credentials` data source:
 
 ```hcl
 data "serverscom_rbs_volume_credentials" "data" {
